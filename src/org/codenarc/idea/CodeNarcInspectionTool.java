@@ -341,7 +341,10 @@ public abstract class CodeNarcInspectionTool extends LocalInspectionTool {
                                             final LocalQuickFix [] localQuickFixes = CodeNarcUiMappings.getQuickFixesFor(violation);
                                             ProblemDescriptor descriptor;
 
-                                            TextRange violatingRange = new TextRange(startOffset + violationPosition, startOffset + violationPosition + sourceLine.length());
+                                            int violationStart = startOffset + violationPosition < 0 ? 0 : startOffset + violationPosition;
+                                            int violationEnd = startOffset + violationPosition + sourceLine.length() > document.getTextLength() - 1 ? document.getTextLength() - 1 : startOffset + violationPosition + sourceLine.length();
+                                            TextRange violatingRange = new TextRange(violationStart, violationEnd);
+
 
                                             final PsiElement violatingElement = PsiUtil.getElementInclusiveRange(file, violatingRange);
                                             if (violatingElement != null && this.isSuppressedFor(violatingElement)) {
