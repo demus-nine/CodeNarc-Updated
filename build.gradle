@@ -34,7 +34,6 @@ intellij {
 }
 
 publishPlugin {
-    channels [ 'experimental' ]
     token "${jbPluginsToken}"
 }
 
