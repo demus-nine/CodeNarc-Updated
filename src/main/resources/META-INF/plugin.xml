@@ -56,11 +56,11 @@
 
   <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
        on how to target different products -->
-  <depends>CodeNarc</depends>
-
-  <extensions defaultExtensionNs="com.intellij">
-    <pluginReplacement implementation="org.codenarc.idea.RevertToOriginalCodenarcPlugin" />
-  </extensions>
+  <application-components>
+    <component>
+      <implementation-class>org.codenarc.idea.CodeNarcComponentObsoleter</implementation-class>
+    </component>
+  </application-components>
 
   <actions>
     <!-- Add your actions here -->

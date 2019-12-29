@@ -2,8 +2,6 @@ plugins {
     id 'org.jetbrains.intellij' version '0.4.11'
     id 'java'
     id 'idea'
-    id 'groovy'
-    id 'enterprise.groovy.plugin' version '1.0.3'
 }
 
 wrapper {
@@ -11,7 +9,7 @@ wrapper {
 }
 
 group 'org.codenarc.idea'
-version '4.2.3'
+version '4.3.0'
 
 repositories {
     mavenCentral()
@@ -29,43 +27,18 @@ configurations {
     }
 }
 
-dependencies {
-    compileOnly( 'org.codehaus.groovy:groovy-all') {
-        version {
-            strictly "$groovyVersion"
-        }
-        because 'there are version conflicts when building'
-    }
-    implementation('org.codenarc:CodeNarc:1.4') {
-        exclude group: 'org.codehaus.groovy', module: 'groovy-all'
-        exclude group: 'org.codehaus.groovy', module: 'groovy-ant'
-        exclude group: 'org.codehaus.groovy', module: 'groovy'
-    }
-    runtimeOnly('org.gmetrics:GMetrics:1.0') {
-        exclude group: 'org.codehaus.groovy', module: 'groovy-all'
-        exclude group: 'org.codehaus.groovy', module: 'groovy-ant'
-        exclude group: 'org.codehaus.groovy', module: 'groovy'
-    }
-
-    testCompile 'org.spockframework:spock-core:1.3-groovy-2.4'
-}
-
 intellij {
-    pluginName 'CodeNarc'
+    pluginName 'CodeNarc Updated'
     downloadSources true
-    plugins 'java', 'Groovy', 'gradle'
+    plugins 'java', 'Groovy'
 }
 
 publishPlugin {
-    channels [ 'testing' ]
+    channels [ 'experimental' ]
     token "${jbPluginsToken}"
-}
-
-buildPlugin {
-
 }
 
 patchPluginXml {
     version "${version}"
-    sinceBuild '183'
+    sinceBuild '192.4147'
 }
