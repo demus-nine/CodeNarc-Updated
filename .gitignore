@@ -2,3 +2,10 @@
 out/
 
 CodeNarc Updated\.zip
+/.gradle/
+
+atlassian-ide-plugin.xml
+
+*.iml
+
+build/
