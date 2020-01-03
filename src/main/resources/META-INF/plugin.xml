@@ -11,7 +11,11 @@
   <idea-version since-build="192.4147"/>
 
   <change-notes><![CDATA[
-<b>Version 4.3.0</b>
+        <b>Version 4.3.1</b>
+        <ul>
+            <li>Improve the replacement proceudre when CodeNarc is installed but disabled</li>
+        </ul>
+        <b>Version 4.3.0</b>
         <ul>
             <li>Merge the CodeNarc-Updated plugin back into the CodeNarc and force replacement</li>
             <li>Collapse the configuration in Inspections to one node with subnodes for each ruleset</li>

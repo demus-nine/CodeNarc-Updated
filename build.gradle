@@ -9,7 +9,7 @@ wrapper {
 }
 
 group 'org.codenarc.idea'
-version '4.3.0'
+version '4.3.1'
 
 repositories {
     mavenCentral()
@@ -39,5 +39,5 @@ publishPlugin {
 
 patchPluginXml {
     version "${version}"
-    sinceBuild '192.4147'
+    sinceBuild '193'
 }
